@@ -6,15 +6,18 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # edit
-user_center = ['usr',0,0,0,0,0,0]
-file_name = 'hijack.csv'
+camera_center = ['usr',0,0,0,0,0,0]
+file_name = 'test.csv'
+output_name = 'output.csv'
+
+
 
 def Normalize(data, center):
     return data[1]-center[0], data[2]-center[1], data[3]-center[2]    
 
 # yaw, row, pitch to vector
 def YRPtoVectorDir(yaw, pitch, row):
-    x_dir = -math.cos(yaw)*math.cos(pitch)
+    x_dir = math.cos(yaw)*math.cos(pitch)
     y_dir = math.sin(yaw)*math.cos(pitch)
     z_dir = math.sin(pitch)
     return x_dir, y_dir, z_dir
@@ -60,11 +63,12 @@ for data in datas:
 
 for data in datas:
     # rotate
-    data[1], data[2], data[3], data[4], data[5], data[6] = Rotate(user_center, data)
+    data[1], data[2], data[3], data[4], data[5], data[6] = Rotate(camera_center, data)
     # move
-    data[1], data[2], data[3] = Move(user_center, data)
-    
-pd.DataFrame(datas).to_csv('sample.csv',index=False,float_format='{:f}'.format,header=['name','x','y','z','yaw','pitch','row'], encoding='utf-8')
+    data[1], data[2], data[3] = Move(camera_center, data)
+
+# write csv
+pd.DataFrame(datas).to_csv(output_name,index=False,float_format='{:f}'.format,header=['name','x','y','z','yaw','pitch','row'], encoding='utf-8')
 
 for data in datas:
     # [name, x, y, z, y, r, p] to [name, x, y, z, x_dir, y_dir, z_dir]
@@ -102,13 +106,13 @@ ax.scatter(center[0],center[1],center[2],c="red")
 quivers = ax.quiver(x,y,z,x_dir,y_dir,z_dir)
 
 # UI
-ax.set_xlim3d([-1.0, 1.0])
+ax.set_xlim3d([-5.0, 5.0])
 ax.set_xlabel('X')
 
-ax.set_ylim3d([-1.0, 1.0])
+ax.set_ylim3d([-5.0, 5.0])
 ax.set_ylabel('Y')
 
-ax.set_zlim3d([-1.0, 1.0])
+ax.set_zlim3d([-5.0, 5.0])
 ax.set_zlabel('Z')
 
 plt.show()
