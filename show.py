@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # edit
-camera_center = ['usr',0,0,0,0,0,0]
-file_name = 'test.csv'
+camera_center = ['usr',1,0,0,45,0,0]
+file_name = 'sixsix.csv'
 output_name = 'output.csv'
 
 
@@ -106,13 +106,13 @@ ax.scatter(center[0],center[1],center[2],c="red")
 quivers = ax.quiver(x,y,z,x_dir,y_dir,z_dir)
 
 # UI
-ax.set_xlim3d([-5.0, 5.0])
+ax.set_xlim3d([-3.0, 3.0])
 ax.set_xlabel('X')
 
-ax.set_ylim3d([-5.0, 5.0])
+ax.set_ylim3d([-3.0, 3.0])
 ax.set_ylabel('Y')
 
-ax.set_zlim3d([-5.0, 5.0])
+ax.set_zlim3d([-3.0, 3.0])
 ax.set_zlabel('Z')
 
 plt.show()
