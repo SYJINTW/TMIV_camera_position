@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
 # edit
-camera_center = ['usr',1,0,0,45,0,0]
+camera_center = ['usr',1,0,0,0,0,90]
 file_name = 'sixsix.csv'
 output_name = 'output.csv'
 
@@ -33,10 +33,21 @@ def Rotate(u_data, c_data):
 
     # roll rotate x, pitch rotate y, yaw rotate z
     yaw_mat = np.array([[math.cos(u_y), -(math.sin(u_y)), 0],
-                [math.sin(u_y), math.cos(u_y), 0],
-                [0, 0, 1]])
+                        [math.sin(u_y), math.cos(u_y), 0],
+                        [0, 0, 1]
+                        ])
+    pitch_mat = np.array([[math.cos(u_p), 0, -(math.sin(u_p))],
+                        [0, 1, 0],
+                        [math.sin(u_p), 0, math.cos(u_p)]
+                        ])
+    roll_mat = np.array([[1, 0, 0],
+                        [0, math.cos(u_r), -(math.sin(u_r))],
+                        [0, math.sin(u_r), math.cos(u_r)]
+                        ])
     
     new_xyz = np.dot(yaw_mat, c_xyz)
+    new_xyz = np.dot(pitch_mat, new_xyz)
+    new_xyz = np.dot(roll_mat, new_xyz)
     
     new_y = c_data[4] + u_data[4]
     new_p = c_data[5] + u_data[5]
