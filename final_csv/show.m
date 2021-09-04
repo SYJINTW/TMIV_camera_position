@@ -1,5 +1,5 @@
 
-filename = '6x6_camera_array.csv';
+filename = '12x3_camera_array.csv';
 data = readmatrix(filename); % don't include the first row
 rows = height(data); 
 
@@ -14,20 +14,20 @@ camera_z = camera_data(:,3:3);
 % show the plot
 plot3(camera_x, camera_y, camera_z ,'o', 'MarkerSize', 8, 'MarkerFace', 'm', 'MarkerEdgeColor','b', 'MarkerFaceColor','b');
 hold on
-plot3(center_data(1), center_data(2), center_data(3), 'r^', 'MarkerSize', 12, 'MarkerFace', 'm')
+plot3(center_data(1), center_data(2), center_data(3), 'r^', 'MarkerSize', 12, 'MarkerFace', 'm', 'MarkerFaceColor','r')
 
-quiver3(0,-0.5,-0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,0.5,-0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,0.5,0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,-0.5,0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,-0.5,-0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0.35,-0.5,-0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,-0.5,0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0.35,-0.5,0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,-0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0.35,-0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0,0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
-quiver3(0.35,0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,-0.5,-0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,0.5,-0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,0.5,0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,-0.5,0.5,0.35,0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,-0.5,-0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0.35,-0.5,-0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,-0.5,0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0.35,-0.5,0.5,0,1.0,0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,-0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0.35,-0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0,0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
+% quiver3(0.35,0.5,-0.5,0,0,1.0,1,'black', 'MarkerFace', 'm' ,'LineWidth',1.5,'ShowArrowHead','off');
 % quiver3(0.2,0,0,-0.03,0,0.05,1,'r','LineWidth',2,'ShowArrowHead','off');
 % quiver3(0.2,0,0,-0.03,0,-0.05,1,'r','LineWidth',2,'ShowArrowHead','off');
 
